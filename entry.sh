@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 set -e
 
 # Exec the specified command or fall back on sh
@@ -13,7 +13,8 @@ if [ -n "${WITH_NIXPKGS}" ]; then
     echo "Running setup. This might take some time ..."
 
     # Check the nix installation
-    if which nix || true; then
+    which nix &>/dev/null && RC=$? || RC=$?
+    if [ ! $RC -eq 0 ]; then
         echo "Installing nix"
         sh <(curl -sL https://nixos.org/nix/install)
         echo ". ${HOME}/.nix-profile/etc/profile.d/nix.sh" > ${HOME}/.profile
@@ -25,7 +26,8 @@ if [ -n "${WITH_NIXPKGS}" ]; then
     fi
         
     # # Setup home-manager
-    if which home-manager || true; then
+    which home-manager &>/dev/null && RC=$? || RC=$?
+    if [ ! $RC -eq 0 ]; then
         echo "Installing home manager"
         nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
         nix-channel --update

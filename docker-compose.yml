@@ -4,6 +4,10 @@ services:
     build: .
     privileged: true
     network_mode: host
+    environment:
+      # The supervisor is overriding this value 
+      # ensure the right one is used
+      USER: 'me'
     labels:
       io.balena.features.balena-socket: '1'
       io.balena.features.dbus: '1' 

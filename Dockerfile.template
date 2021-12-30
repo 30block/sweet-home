@@ -5,7 +5,7 @@ ARG USER=me
 ARG UID=1000
 
 # Base Tools
-RUN install_packages sudo docker-cli xz ncurses git iputils openssh-client
+RUN install_packages tini sudo docker-cli xz ncurses git iputils openssh-client
 
 # Set environment variables
 ENV USER ${USER}
@@ -23,7 +23,7 @@ RUN adduser -D -s /bin/bash -u $UID $USER && \
 
 USER root
 
-ENTRYPOINT ["entry.sh"]
+ENTRYPOINT ["tini", "--", "entry.sh"]
 
 # Sleep by default to keep the container from
 # dying when started by the supervisor
