@@ -13,7 +13,7 @@ if [ -n "${WITH_NIXPKGS}" ]; then
     echo "Running setup. This might take some time ..."
 
     # Check the nix installation
-    if [ ! -d /nix ] || [ ! -f ${HOME}/.nix-profile/etc/profile.d/nix.sh ]; then
+    if which nix || true; then
         echo "Installing nix"
         sh <(curl -sL https://nixos.org/nix/install)
         echo ". ${HOME}/.nix-profile/etc/profile.d/nix.sh" > ${HOME}/.profile
@@ -25,7 +25,7 @@ if [ -n "${WITH_NIXPKGS}" ]; then
     fi
         
     # # Setup home-manager
-    if [ ! -d ${HOME}/.config/nixpkgs ]; then
+    if which home-manager || true; then
         echo "Installing home manager"
         nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
         nix-channel --update

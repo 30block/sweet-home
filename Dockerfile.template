@@ -18,7 +18,8 @@ ENV PS1="\u@\h:\W$ "
 # -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix
 RUN adduser -D -s /bin/bash -u $UID $USER && \
     echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
-    chmod 0440 /etc/sudoers
+    chmod 0440 /etc/sudoers && \
+    mkdir /nix && chown ${USER} /nix
 
 USER root
 
@@ -34,3 +35,4 @@ COPY entry.sh /usr/local/bin/
 WORKDIR $HOME
 USER ${UID}
 VOLUME $HOME
+VOLUME /nix
