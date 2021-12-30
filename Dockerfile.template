@@ -5,7 +5,7 @@ ARG USER=me
 ARG UID=1000
 
 # Base Tools
-RUN install_packages sudo docker-cli xz ncurses git iputils
+RUN install_packages sudo docker-cli xz ncurses git iputils openssh-client
 
 # Set environment variables
 ENV USER ${USER}

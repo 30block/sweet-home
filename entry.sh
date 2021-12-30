@@ -35,6 +35,9 @@ if [ -n "${WITH_NIXPKGS}" ]; then
         if [ -n "${NIXPKGS_REPO_URL}" ]; then
             rm -rf ${HOME}/.config/nixpkgs
             git clone ${NIXPKGS_REPO_URL} ${HOME}/.config/nixpkgs
+
+            # Load configuration and install dependencies
+            home-manager switch
         fi
     fi   
 fi

@@ -11,7 +11,7 @@ services:
       - home:/nix
       - home:/home/me
   wifi-connect:
-    build: ./wifi-connect
+    image: balenablocks/wifi-connect:aarch64
     restart: always
     network_mode: host
     privileged: true
