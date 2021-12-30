@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+  home:
+    build: .
+    privileged: true
+    network_mode: host
+    labels:
+      io.balena.features.balena-socket: '1'
+      io.balena.features.dbus: '1' 
+    volumes:
+      - home:/nix
+      - home:/home/me
+  wifi-connect:
+    build: ./wifi-connect
+    restart: always
+    network_mode: host
+    privileged: true
+    labels:
+      io.balena.features.dbus: '1'
+      io.balena.features.firmware: '1'
+
+volumes:
+  home:
