@@ -41,9 +41,5 @@ COPY entry.sh /usr/local/bin/
 
 ENTRYPOINT ["tini", "--", "entry.sh"]
 
-# Sleep by default to keep the container from
-# dying when started by the supervisor
-CMD ["sleep", "infinity"]
-
 WORKDIR $HOME
 VOLUME $HOME

@@ -25,11 +25,11 @@ docker build -t home-sweet-home .
 
 Run the image. This will open a new shell as the `me` user within a container.
 ```
-docker run --rm -ti home-sweet-home sh
+docker run --rm -ti home-sweet-home
 ```
 
 It is recommended to set the `/nix` and `/home/me` folders within a volume to avoid
 losing package and home folder data.
 ```
-docker run --rm -ti -v packages:/nix -v home:/home/me home-sweet-home sh
+docker run --rm -ti -v packages:/nix -v home:/home/me home-sweet-home
 ```
