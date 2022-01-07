@@ -1,13 +1,17 @@
 { config, pkgs, ... }:
 
 {
-  # Add your programs and configurations here
+  # Do not delete these lines
+  home.username = "me";
+  home.homeDirectory = "/home/me";
+  
+  # Add your programs and configurations here 
   programs.tmux = {
     enable = true;
     # Use same shortcut as screen
     shortcut = "a";
   };
-  
+
   # Link configuration files
   # home.file.".gitconfig".source = ./vimrc;
 
