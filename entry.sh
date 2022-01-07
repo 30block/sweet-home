@@ -15,7 +15,8 @@ if [ -n "${NIXPKGS_REPO_URL}" ] && [ ! -d ${HOME}/.configs/nixpkgs/.git ]; then
 
 fi
 
-# Load configuration and install missing dependencies
-# home-manager switch --flake  ${HOME}/.config/nixpkgs
+# Update channel definitions and install extra dependencies
+nix-channel --update
+home-manager switch
 
 exec ${cmd}

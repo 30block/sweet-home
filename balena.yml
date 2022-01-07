@@ -3,3 +3,8 @@ description: 'Your $HOME in a container'
 joinable: false
 type: sw.application
 version: 0.0.1
+data:
+  defaultDeviceType: raspberrypi4-64
+  supportedDeviceTypes:
+    - raspberrypi4-64
+    - intel-nuc
