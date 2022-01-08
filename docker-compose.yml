@@ -1,9 +1,10 @@
 version: '2.1'
 services:
   home:
-    build: .
+    image: pipex/sweet-home
     privileged: true
     network_mode: host
+    command: sleep infinity
     environment:
       # The supervisor is overriding this value 
       # ensure the right one is used
@@ -11,6 +12,8 @@ services:
       TZ: 'America/Santiago'
     volumes:
       - home:/home/me
+      - pkgs:/nix
 
 volumes:
   home:
+  pkgs:

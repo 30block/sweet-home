@@ -17,7 +17,7 @@ Here is [how to get started with home-manager](https://ghedam.at/24353/tutorial-
 
 ## Running
 
-Build the image
+Build the image (only amd64 and aarch64 is supported)
 
 ```
 docker build -t home-sweet-home .
@@ -32,4 +32,10 @@ It is recommended to set the `/nix` and `/home/me` folders within a volume to av
 losing package and home folder data.
 ```
 docker run --rm -ti -v packages:/nix -v home:/home/me home-sweet-home
+```
+
+You can also use pre-built images in [hub.docker.com](https://hub.docker.com/u/pipex/sweet-home) (only amd64 and aarch64 images)
+
+```
+docker run --rm -ti -v packages:/nix -v home:/home/me pipex/home-sweet-home
 ```
