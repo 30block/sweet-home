@@ -13,6 +13,10 @@ FROM alpine
 ARG USER
 ARG UID
 
+# Depending on how you build docker complains about
+# copying over /usr/local
+RUN rm -rf /usr/local
+
 # Copy nix dependencies
 COPY --from=nix --chown=${UID} /output/store /nix/store
 COPY --from=nix /output/profile/ /usr/local/
@@ -30,8 +34,15 @@ USER ${UID}
 ENV USER ${USER}
 ENV HOME /home/${USER}
 ENV TERM "xterm-color"
-ENV NIX_PATH=${HOME}/.nix-defexpr/channels
 
+# Nix variables
+ENV NIX_PATH=${HOME}/.nix-defexpr/channels
+ENV NIX_PROFILES="/nix/var/nix/profiles/default $HOME/.nix-profile"
+ENV NIX_SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
+ENV MANPATH="$HOME/.nix-profile/share/man:$MANPATH"
+ENV PATH="$HOME/.nix-profile/bin:$PATH"
+
+# Add nixpath channel but don't update it yet
 RUN mkdir -p ${HOME}/.config/nixpkgs && \
     nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 
