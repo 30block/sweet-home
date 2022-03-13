@@ -1,7 +1,4 @@
 # sweet-home
-Your $HOME in a container 
-
-## Usage
 
 This project allows to use a container as a development environment, running as a unprivileged user.
 It also packages the [Nix package manager](https://nixos.org/manual/nix/stable/introduction.html) for
