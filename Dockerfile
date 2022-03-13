@@ -22,7 +22,7 @@ COPY --from=nix --chown=${UID} /output/store /nix/store
 COPY --from=nix /output/profile/ /usr/local/
 
 # Install minimal tools and create user
-RUN apk --update add --no-cache sudo tini iputils git && \
+RUN apk --update add --no-cache sudo tini iputils git tzdata && \
     adduser -D -s /bin/bash -u $UID $USER && \
     echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
     chmod 0440 /etc/sudoers && \
@@ -34,6 +34,11 @@ USER ${UID}
 ENV USER ${USER}
 ENV HOME /home/${USER}
 ENV TERM "xterm-color"
+
+# These variables are usually set from /etc/profile but
+# we want them there for all shells
+ENV LANG=C.UTF-8
+ENV CHARSET=UTF-8
 
 # Nix variables
 ENV NIX_PATH=${HOME}/.nix-defexpr/channels

@@ -7,8 +7,11 @@ services:
     command: sleep infinity
     environment:
       # The supervisor is overriding this value 
-      # ensure the right one is used
+      # this ensures the right one is used. Do not change this as
+      # it has no effect on the runtime username
       USER: 'me'
+      # Setting the TZ env var allows for the local date
+      # to be shown in tmux and as result of the `date` command
       TZ: 'America/Santiago'
     volumes:
       - home:/home/me
