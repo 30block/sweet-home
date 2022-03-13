@@ -14,7 +14,8 @@ ARG USER
 ARG UID
 
 # Depending on how you build docker complains about
-# copying over /usr/local
+# copying over /usr/local so remove it as the files
+# will be copied from the first stage
 RUN rm -rf /usr/local
 
 # Copy nix dependencies
@@ -47,7 +48,9 @@ ENV NIX_SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
 ENV MANPATH="$HOME/.nix-profile/share/man:$MANPATH"
 ENV PATH="$HOME/.nix-profile/bin:$PATH"
 
-# Add nixpath channel but don't update it yet
+# Add nixpath channel but don't update it yet.
+# The update and install of default packages will happen on
+# the entrypoint
 RUN mkdir -p ${HOME}/.config/nixpkgs && \
     nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 
