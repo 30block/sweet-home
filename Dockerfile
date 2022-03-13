@@ -4,7 +4,7 @@ ARG UID=1000
 FROM nixos/nix as nix
 
 RUN mkdir -p /output/store && \
-    nix-env --profile /output/profile -i home-manager nix && \
+    nix-env --profile /output/profile --option filter-syscalls false -i home-manager nix && \
     cp -va $(nix-store -qR /output/profile) /output/store
 
 
