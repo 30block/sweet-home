@@ -1,17 +1,17 @@
-#!/bin/sh -l
+#!/bin/sh
 set -e
 
 # Exec the specified command or fall back on sh
 if [ $# -eq 0 ]; then
-    cmd="sh"
+	cmd="sh"
 else
-    cmd="$@"
+	cmd="$*"
 fi
 
 # If a repository was provided, replace default config with the repo config
-if [ -n "${NIXPKGS_REPO_URL}" ] && [ ! -d ${HOME}/.configs/nixpkgs/.git ]; then
-    rm -rf ${HOME}/.config/nixpkgs
-    git clone ${NIXPKGS_REPO_URL} ${HOME}/.config/nixpkgs
+if [ -n "${NIXPKGS_REPO_URL}" ] && [ ! -d "${HOME}/.configs/nixpkgs/.git" ]; then
+	rm -rf "${HOME}/.config/nixpkgs"
+	git clone "${NIXPKGS_REPO_URL}" "${HOME}/.config/nixpkgs"
 
 fi
 
