@@ -11,7 +11,7 @@ fi
 # If a repository was provided, replace default config with the repo config
 if [ -n "${NIXPKGS_REPO_URL}" ] && [ ! -d "${HOME}/.configs/nixpkgs/.git" ]; then
 	rm -rf "${HOME}/.config/nixpkgs"
-	git clone "${NIXPKGS_REPO_URL}" "${HOME}/.config/nixpkgs"
+	git clone --recurse-submodules -j8 "${NIXPKGS_REPO_URL}" "${HOME}/.config/nixpkgs"
 
 fi
 
