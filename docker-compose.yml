@@ -6,8 +6,8 @@ services:
     network_mode: host
     command: sleep infinity
     environment:
-      # The supervisor is overriding this value 
-      # this ensures the right one is used. Do not change this as
+      # This is to prevent the Balena supervisor from overriding this value to
+      # ensure the right one is used. Do not change this as
       # it has no effect on the runtime username
       USER: 'me'
       # Setting the TZ env var allows for the local date
