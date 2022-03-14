@@ -34,5 +34,5 @@ docker run --rm -ti -v packages:/nix -v home:/home/me home-sweet-home
 You can also use pre-built images in [hub.docker.com](https://hub.docker.com/u/pipex/sweet-home) (only amd64 and aarch64 images)
 
 ```
-docker run --rm -ti -v packages:/nix -v home:/home/me pipex/home-sweet-home
+docker run --rm -ti -v packages:/nix -v home:/home/me pipex/sweet-home
 ```
