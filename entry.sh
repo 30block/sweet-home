@@ -25,6 +25,6 @@ fi
 
 # Update channel definitions and install extra dependencies
 nix-channel --update
-home-manager switch
+home-manager switch || echo "Failed to load home manager config. Check your home.nix"
 
 exec ${cmd}
