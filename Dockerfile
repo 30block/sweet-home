@@ -34,7 +34,6 @@ USER ${UID}
 # Set environment variables
 ENV USER ${USER}
 ENV HOME /home/${USER}
-ENV TERM "xterm-color"
 
 # These variables are usually set from /etc/profile but
 # we want them there for all shells
