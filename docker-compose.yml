@@ -1,10 +1,11 @@
 version: '2.1'
 services:
   home:
-    image: pipex/sweet-home
-    privileged: true
-    network_mode: host
-    command: sleep infinity
+    image: pipex/sweet-home:latest
+    privileged: true # (optional) use this is you want to have your container have access to the host
+    network_mode: host # (optional) use this to add access to the host network interfaces
+    command: sleep infinity # allows the container to run as a daemon
+    restart: always
     environment:
       # This is to prevent the Balena supervisor from overriding this value to
       # ensure the right one is used. Do not change this as
@@ -12,10 +13,10 @@ services:
       USER: 'me'
       # Setting the TZ env var allows for the local date
       # to be shown in tmux and as result of the `date` command
-      TZ: 'America/Santiago'
+      TZ: 'America/Los_Angeles'
     volumes:
-      - home:/home/me
-      - pkgs:/nix
+      - home:/home/me # Keep home files accross container restarts
+      - pkgs:/nix # Keep package configuration accross container restarts
 
 volumes:
   home:
