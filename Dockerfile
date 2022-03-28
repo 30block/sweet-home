@@ -1,5 +1,6 @@
 ARG USER=me
 ARG UID=1000
+ARG VERSION=latest
 
 FROM nixos/nix as nix
 
@@ -12,6 +13,7 @@ FROM alpine
 
 ARG USER
 ARG UID
+ARG VERSION
 
 # Depending on how you build docker complains about
 # copying over /usr/local so remove it as the files
@@ -39,6 +41,7 @@ ENV HOME /home/${USER}
 # we want them there for all shells
 ENV LANG=C.UTF-8
 ENV CHARSET=UTF-8
+ENV TERM=xterm-256color
 
 # Nix variables
 ENV NIX_PATH=${HOME}/.nix-defexpr/channels
@@ -46,6 +49,9 @@ ENV NIX_PROFILES="/nix/var/nix/profiles/default $HOME/.nix-profile"
 ENV NIX_SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
 ENV MANPATH="$HOME/.nix-profile/share/man:$MANPATH"
 ENV PATH="$HOME/.nix-profile/bin:$PATH"
+
+# Sweet home version for use in scripts
+ENV SWEET_HOME_VERSION=${VERSION}
 
 # Add nixpath channel but don't update it yet.
 # The update and install of default packages will happen on

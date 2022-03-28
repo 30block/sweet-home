@@ -44,6 +44,7 @@ jobs:
           TAGS="${DOCKER_IMAGE}:${VERSION},${DOCKER_IMAGE}:${SHORTREF},${DOCKER_IMAGE}:latest"
 
           # Set output parameters.
+          echo ::set-output name=version::${VERSION}
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=docker_image::${DOCKER_IMAGE}
 
@@ -68,6 +69,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           context: .
+          build-args: VERSION=${{ steps.prep.outputs.version }}
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
