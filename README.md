@@ -1,13 +1,13 @@
 # sweet-home
 
-This project provides an quick way to set up a container to serve as a temporary (or permanent) work or development environment, 
-for those instances where you may find yourself working in a different computer and want your preferred tools with you.
+This project provides an quick way to set up a container to serve as a temporary (or permanent) work environment, 
+for those instances where you may find yourself working in a different computer and want your favorite tools at your disposal.
 
 ## Features
 
 - Work in a container as an unprivileged user.
 - Setup your preferred tools through [Nix package manager](https://nixos.org/manual/nix/stable/introduction.html).
-  The [nixpkgs-unstable](https://nixos.wiki/wiki/Nix_channels) is used by default for access to the latest software versions.
+  The [nixpkgs-unstable channel](https://nixos.wiki/wiki/Nix_channels) is used by default for access to the latest software versions.
 - Configuration (dotfile) management using [Home Manager](https://github.com/nix-community/home-manager).
 - Small image size (<60MB compressed).
 
@@ -29,14 +29,14 @@ By design, the base system only includes a minimal set of packages, but the
 configuration can be easily extended making changes to `~/.config/nixpkgs/home.nix` and running `home-manager switch`. The changes wil be persisted
 on the following run because of the flags `-v packages:/nix -v home:/home/me` that set up these directories as volumes.
 
-Here is how to [get started with home-manager](https://ghedam.at/24353/tutorial-getting-started-with-home-manager-for-nix).
-
 A custom startup configuration can be provided to the container through the environment variable `NIXPKGS_REPO_URL`. The variable must point to a public git repository
-containing a valid home manager configuration, as it will used to replace the contents of the `~/.config/nixpkgs` directory. For an example, see [my configuration](https://github.com/pipex/nixpkgs).
+containing a valid home manager configuration, as it will used to replace the contents of the `~/.config/nixpkgs` directory. For an example, see [my personal configuration](https://github.com/pipex/nixpkgs).
 
 ```
 docker run --rm --name sweet-home -ti -e NIXPKGS_REPO_URL=https://github.com/pipex/nixpkgs.git -v packages:/nix -v home:/home/me pipex/sweet-home
 ```
+
+Here is some extra info on how to [get started with home-manager](https://ghedam.at/24353/tutorial-getting-started-with-home-manager-for-nix).
 
 
 ### Docker compose file
