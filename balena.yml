@@ -1,10 +1,14 @@
 name: sweet-home
-description: Your $HOME in a container
+description: >- 
+  This project provides an quick way to set up a container to serve as a temporary 
+  (or permanent) work environment, for those instances where you may find yourself working 
+  in a different computer and want your favorite tools at your disposal.
 joinable: false
 type: sw.application
 version: 0.3.0
 data:
   defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:
+    - raspberrypi3-64
     - raspberrypi4-64
     - intel-nuc
