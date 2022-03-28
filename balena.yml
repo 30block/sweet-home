@@ -6,7 +6,7 @@ description: >-
   your disposal.
 joinable: false
 type: sw.application
-version: 0.4.0
+version: 0.4.1
 data:
   defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:
