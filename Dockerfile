@@ -25,7 +25,7 @@ COPY --from=nix --chown=${UID} /output/store /nix/store
 COPY --from=nix /output/profile/ /usr/local/
 
 # Install minimal tools and create user
-RUN apk --update add --no-cache sudo tini iputils git tzdata && \
+RUN apk --update add --no-cache sudo tini iputils git tzdata procps && \
     adduser -D -s /bin/bash -u $UID $USER && \
     echo "${USER} ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers && \
     chmod 0440 /etc/sudoers && \
