@@ -1,11 +1,12 @@
 name: sweet-home
-description: >- 
-  This project provides an quick way to set up a container to serve as a temporary 
-  (or permanent) work environment, for those instances where you may find yourself working 
-  in a different computer and want your favorite tools at your disposal.
+description: >-
+  This project provides an quick way to set up a container to serve as a
+  temporary  (or permanent) work environment, for those instances where you may
+  find yourself working  in a different computer and want your favorite tools at
+  your disposal.
 joinable: false
 type: sw.application
-version: 0.3.0
+version: 0.4.0
 data:
   defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:
