@@ -77,7 +77,7 @@ jobs:
 
   balena_cloud_build:
     name: Deploy to balenaHub
-    needs: versionist
+    needs: docker
     if: needs.versionist.outputs.updated == 'true'
     runs-on: ubuntu-latest
     strategy:
