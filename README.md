@@ -44,7 +44,7 @@ docker run --rm --name sweet-home -ti -e NIXPKGS_REPO_URL=https://github.com/pip
 To use this image as part of a larger application, or to deploy to your own [balenaCloud](https://www.balena.io/cloud/) fleet, create a 
 service in your `docker-compose.yml` as shown below. 
 
-```
+```yaml
 version: '2.1'
 services:
   home:
@@ -76,5 +76,4 @@ volumes:
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | NIXPKGS_REPO_URL    | Git repository url pointing to a valid home manager configuration. The contents of the `~/.config/nixpkgs` directory will be replaced by the contents of the repo |               |
 | NIXPKGS_REPO_BRANCH | Repository branch for the home manager configuration.                                                                                                             |               |
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 
