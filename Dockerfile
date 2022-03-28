@@ -24,6 +24,8 @@ RUN rm -rf /usr/local
 COPY --from=nix --chown=${UID} /output/store /nix/store
 COPY --from=nix /output/profile/ /usr/local/
 
+
+
 # Install minimal tools and create user
 RUN apk --update add --no-cache sudo tini iputils git tzdata procps && \
     adduser -D -s /bin/bash -u $UID $USER && \
@@ -50,9 +52,6 @@ ENV NIX_SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
 ENV MANPATH="$HOME/.nix-profile/share/man:$MANPATH"
 ENV PATH="$HOME/.nix-profile/bin:$PATH"
 
-# Sweet home version for use in scripts
-ENV SWEET_HOME_VERSION=${VERSION}
-
 # Add nixpath channel but don't update it yet.
 # The update and install of default packages will happen on
 # the entrypoint
@@ -63,7 +62,14 @@ RUN mkdir -p ${HOME}/.config/nixpkgs && \
 COPY --chown=${UID} home.nix ${HOME}/.config/nixpkgs/
 COPY entry.sh /usr/local/bin/
 
+# Add fake bash for those tools that require it
+COPY bash /bin/bash
+
 ENTRYPOINT ["tini", "--", "entry.sh"]
+
+# Sweet home version for use in scripts
+# add late to avoid cache busting
+ENV SWEET_HOME_VERSION=${VERSION}
 
 WORKDIR $HOME
 VOLUME $HOME
