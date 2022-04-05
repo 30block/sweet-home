@@ -63,7 +63,7 @@ COPY --chown=${UID} home.nix ${HOME}/.config/nixpkgs/
 COPY entry.sh /usr/local/bin/
 
 # Add fake bash for those tools that require it
-COPY bash /bin/bash
+COPY bash.stub /bin/bash
 
 ENTRYPOINT ["tini", "--", "entry.sh"]
 
