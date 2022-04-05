@@ -7,6 +7,16 @@ description: >-
 joinable: false
 type: sw.application
 version: 0.5.0
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/pipex/sweet-home'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://raw.githubusercontent.com/pipex/sweet-home/master/logo.png
 data:
   defaultDeviceType: raspberrypi4-64
   supportedDeviceTypes:
