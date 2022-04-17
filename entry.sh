@@ -3,7 +3,7 @@ set -e
 
 # Exec the specified command or fall back on sh
 if [ $# -eq 0 ]; then
-	cmd="sh"
+	cmd="/bin/bash"
 else
 	cmd="$*"
 fi
@@ -26,5 +26,8 @@ fi
 # Update channel definitions and install extra dependencies
 nix-channel --update
 home-manager switch || echo "Failed to load home manager config. Check your home.nix"
+
+# Load home manager session vars
+. "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
 exec ${cmd}

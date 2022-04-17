@@ -5,13 +5,18 @@
   home.username = "me";
   home.homeDirectory = "/home/me";
 
+  home.sessionVariables = {
+    # Set your preferred shell here
+    SHELL = "sh";
+  };
+
   # Additional packages to install
   home.packages = [
     # pkgs is the set of all packages in the default home.nix implementation
     # pkgs.nodejs-14_x
     # pkgs.curl
   ];
-  
+
   # Add your programs and configurations here 
   programs.tmux = {
     enable = true;

@@ -1,2 +1,8 @@
 #!/bin/sh
-/bin/sh "$@"
+
+# User preferred shell. Can be configured in home manager using
+# home.sessionVars
+SHELL=${SHELL:-"sh"}
+
+# Run with user chosen shell
+"${SHELL}" "$@"
