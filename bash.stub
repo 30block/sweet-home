@@ -2,7 +2,7 @@
 
 # User preferred shell. Can be configured in home manager using
 # home.sessionVars
-SHELL=${SHELL:-"sh"}
+SWEET_HOME_SHELL=${SWEET_HOME_SHELL:-"sh"}
 
 # Run with user chosen shell
-"${SHELL}" "$@"
+"${SWEET_HOME_SHELL}" "$@"

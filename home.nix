@@ -7,7 +7,7 @@
 
   home.sessionVariables = {
     # Set your preferred shell here
-    SHELL = "sh";
+    SWEET_HOME_SHELL = "sh";
   };
 
   # Additional packages to install
