@@ -6,7 +6,8 @@
   home.homeDirectory = "/home/me";
 
   home.sessionVariables = {
-    # Set your preferred shell here
+    # Set your preferred shell here.
+    # Don't forget to add it to the `home.packages` section
     SWEET_HOME_SHELL = "sh";
   };
 

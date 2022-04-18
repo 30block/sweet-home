@@ -76,6 +76,6 @@ volumes:
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | NIXPKGS_REPO_URL    | Git repository url pointing to a valid home manager configuration. The contents of the `~/.config/nixpkgs` directory will be replaced by the contents of the repo |               |
 | NIXPKGS_REPO_BRANCH | Repository branch for the home manager configuration.                                                                                                             |               |
-| SWEET_HOME_SHELL    | Set the preferred shell. This configuration will be used doing `docker run` and on the balena terminal                                                            | sh            |
+| SWEET_HOME_SHELL    | Set the preferred shell. This configuration will be used when doing `docker run` and on the balena terminal                                                       | sh            |
 
 
