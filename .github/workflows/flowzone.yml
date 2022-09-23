@@ -19,6 +19,7 @@ jobs:
       DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
       BALENA_API_KEY: ${{ secrets.BALENA_API_KEY }}
     with:
+      docker_images: pipex/sweet-home
       balena_slugs: |
         gh_pipex/sweet-home-amd64,
         gh_pipex/sweet-home-aarch64
