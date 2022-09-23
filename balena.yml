@@ -6,7 +6,7 @@ description: >-
   your disposal.
 joinable: false
 type: sw.application
-version: 0.6.3
+version: 0.6.4
 assets:
   repository:
     type: blob.asset

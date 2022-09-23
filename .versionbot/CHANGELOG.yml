@@ -1,4 +1,16 @@
 - commits:
+    - subject: Fix docker publishing
+      hash: a7ba256802266664b1f5b03696be64d5c02272ae
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 0.6.4
+  title: ""
+  date: 2022-09-23T15:33:18.318Z
+- commits:
     - subject: Migrate to flowzone
       hash: c36445aca91bb54f8fa578a31412537e82f5ecec
       body: ""
