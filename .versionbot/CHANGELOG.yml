@@ -1,0 +1,21 @@
+- commits:
+    - subject: Migrate to flowzone
+      hash: c36445aca91bb54f8fa578a31412537e82f5ecec
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 0.6.3
+  title: ""
+  date: 2022-09-23T15:07:15.739Z
+- version: 0.0.2
+  date: 2022-03-13T22:48:26Z
+  commits:
+    - hash: e0e24b1e6a6d7c050ba8ebd03c108fe359218d8c
+      author: Felipe Lalanne
+      footers:
+        change-type: patch
+      subject: Add deploy to docker configuration
+      body: null
