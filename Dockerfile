@@ -1,6 +1,5 @@
 ARG USER=me
 ARG UID=1000
-ARG VERSION=latest
 
 FROM nixos/nix as nix
 
@@ -13,7 +12,6 @@ FROM alpine
 
 ARG USER
 ARG UID
-ARG VERSION
 
 # Depending on how you build docker complains about
 # copying over /usr/local so remove it as the files
@@ -23,8 +21,6 @@ RUN rm -rf /usr/local
 # Copy nix dependencies
 COPY --from=nix --chown=${UID} /output/store /nix/store
 COPY --from=nix /output/profile/ /usr/local/
-
-
 
 # Install minimal tools and create user
 RUN apk --update add --no-cache sudo tini iputils git tzdata procps && \
@@ -61,15 +57,13 @@ RUN mkdir -p ${HOME}/.config/nixpkgs && \
 # Copy local files
 COPY --chown=${UID} home.nix ${HOME}/.config/nixpkgs/
 COPY entry.sh /usr/local/bin/
+COPY VERSION /etc/sweet-home-version
 
 # Add fake bash for those tools that require it
 COPY bash.stub /bin/bash
 
 ENTRYPOINT ["tini", "--", "entry.sh"]
 
-# Sweet home version for use in scripts
-# add late to avoid cache busting
-ENV SWEET_HOME_VERSION=${VERSION}
-
 WORKDIR $HOME
 VOLUME $HOME
+
