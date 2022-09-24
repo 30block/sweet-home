@@ -20,6 +20,4 @@ jobs:
       BALENA_API_KEY: ${{ secrets.BALENA_API_KEY }}
     with:
       docker_images: pipex/sweet-home
-      balena_slugs: |
-        gh_pipex/sweet-home-amd64,
-        gh_pipex/sweet-home-aarch64
+      balena_slugs: gh_pipex/sweet-home
