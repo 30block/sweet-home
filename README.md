@@ -47,7 +47,7 @@ service in your `docker-compose.yml` as shown below.
 ```yaml
 version: '2.1'
 services:
-  home:
+  sweet-home:
     image: pipex/sweet-home:latest
     privileged: true # (optional) use this is you want to have your container have access to the host
     network_mode: host # (optional) use this to add access to the host network interfaces

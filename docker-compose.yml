@@ -1,7 +1,7 @@
 version: '2.1'
 services:
-  home:
-    image: pipex/sweet-home:latest
+  sweet-home:
+    build: ./ 
     privileged: true # (optional) use this is you want to have your container have access to the host
     network_mode: host # (optional) use this to add access to the host network interfaces
     command: sleep infinity # allows the container to run as a daemon
