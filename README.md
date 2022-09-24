@@ -18,7 +18,7 @@ for those instances where you may find yourself working in a different computer 
 You can launch a container using one of the pre-built images in [hub.docker.com](https://hub.docker.com/u/pipex/sweet-home) 
 (only amd64 and aarch64 architectures are supported).
 
-```
+```sh
 docker run --rm --name sweet-home -ti -v packages:/nix -v home:/home/me pipex/sweet-home
 ```
 
@@ -78,4 +78,6 @@ volumes:
 | NIXPKGS_REPO_BRANCH | Repository branch for the home manager configuration.                                                                                                             |               |
 | SWEET_HOME_SHELL    | Set the preferred shell. This configuration will be used when doing `docker run` and on the balena terminal                                                       | sh            |
 
+## Attributions
 
+- [Real estate icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/real-estate)

@@ -4,8 +4,10 @@ description: >-
   temporary  (or permanent) work environment, for those instances where you may
   find yourself working  in a different computer and want your favorite tools at
   your disposal.
+
+  Intel NUC is also supported by following the instructions on the repository.
 joinable: false
-type: sw.application
+type: sw.block
 version: 0.6.4
 assets:
   repository:
