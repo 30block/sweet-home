@@ -1,4 +1,16 @@
 - commits:
+    - subject: Renama block and update logo
+      hash: 57eb14ba48aa0174134d81632362cf43eee24c5e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 0.6.5
+  title: ""
+  date: 2022-09-24T00:42:20.489Z
+- commits:
     - subject: Fix docker publishing
       hash: a7ba256802266664b1f5b03696be64d5c02272ae
       body: ""
