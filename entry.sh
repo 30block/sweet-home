@@ -27,10 +27,6 @@ fi
 nix-channel --update
 home-manager switch || echo "Failed to load home manager config. Check your home.nix"
 
-# Set version as an env var for usage in scripts
-version=$(cat /etc/sweet-home-version)
-export SWEET_HOME_VERSION="${version}"
-
 # Load home manager session vars if it exists
 . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh" || true
 
