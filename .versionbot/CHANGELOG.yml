@@ -1,4 +1,26 @@
 - commits:
+    - subject: Fix versioning
+      hash: 7b9c94a7ffacd28a0b05df31e8e48427339a17fb
+      body: >
+        This fix allows the SWEET_HOME_VERSION env var to be available both in
+        interactive
+
+        ash shell and with zsh through .zshenv. It also fixes a bug where the
+
+        published block version would be one version behind the latest due to
+
+        the docker-compose pointing to the docker image instead of the local
+
+        code.
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 0.6.6
+  title: ""
+  date: 2022-09-24T23:14:42.260Z
+- commits:
     - subject: Renama block and update logo
       hash: 57eb14ba48aa0174134d81632362cf43eee24c5e
       body: ""
