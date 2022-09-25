@@ -8,7 +8,7 @@ description: >-
   Intel NUC is also supported by following the instructions on the repository.
 joinable: false
 type: sw.block
-version: 0.6.7
+version: 0.6.8
 assets:
   repository:
     type: blob.asset

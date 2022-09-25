@@ -1,4 +1,18 @@
 - commits:
+    - subject: Move hmvars load to bash stub
+      hash: cd2b0a1de0e0c7f305f7011057495e54f3f83dc5
+      body: |
+        This allows the personalized shell to be loaded by the dashboard
+        terminal as well.
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 0.6.8
+  title: ""
+  date: 2022-09-25T23:17:36.895Z
+- commits:
     - subject: Do not load hmvars if not present
       hash: d17c4b054d92ab7077a20778e0fdcd15c267bfc6
       body: |
