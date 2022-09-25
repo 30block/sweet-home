@@ -1,4 +1,19 @@
 - commits:
+    - subject: Do not load hmvars if not present
+      hash: d17c4b054d92ab7077a20778e0fdcd15c267bfc6
+      body: |
+        This prevents errors during home manager setup to cause the entry script
+        to fail. It also moves ~/.zshenv to /etc/zshenv to avoid conflicts with
+        newer zsh installs.
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Felipe Lalanne
+      nested: []
+  version: 0.6.7
+  title: ""
+  date: 2022-09-25T20:58:39.697Z
+- commits:
     - subject: Fix versioning
       hash: 7b9c94a7ffacd28a0b05df31e8e48427339a17fb
       body: >
