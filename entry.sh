@@ -27,7 +27,4 @@ fi
 nix-channel --update
 home-manager switch || echo "Failed to load home manager config. Check your home.nix" >&2
 
-# Load home manager session vars if it exists
-[ -f "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh" ] && . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
-
 exec ${cmd}

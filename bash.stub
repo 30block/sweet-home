@@ -1,8 +1,11 @@
 #!/bin/sh
 
+# Load home manager session vars if it exists
+[ -f "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh" ] && . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
 # User preferred shell. Can be configured in home manager using
 # home.sessionVars
 SWEET_HOME_SHELL=${SWEET_HOME_SHELL:-"sh"}
 
 # Run with user chosen shell
-"${SWEET_HOME_SHELL}" "$@"
+PATH=${HOME}/.nix-profile/bin:${PATH} "${SWEET_HOME_SHELL}" "$@"
