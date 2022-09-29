@@ -14,6 +14,10 @@ services:
       # Setting the TZ env var allows for the local date
       # to be shown in tmux and as result of the `date` command
       TZ: 'America/Los_Angeles'
+    ports: 
+      # If using ssh server (w/o host networking). 
+      # Expose container host port 22 to container port 2222
+      - "22:2222"
     volumes:
       - home:/home/me # Keep home files accross container restarts
       - pkgs:/nix # Keep package configuration accross container restarts

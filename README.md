@@ -61,6 +61,10 @@ services:
       # Setting the TZ env var allows for the local date
       # to be shown in tmux and as result of the `date` command
       TZ: 'America/Los_Angeles'
+    ports: 
+      # If using ssh server (w/o host networking). 
+      # Expose container host port 22 to container port 2222
+      - "22:2222"
     volumes:
       - home:/home/me # Keep home files accross container restarts
       - pkgs:/nix # Keep package configuration accross container restarts
@@ -77,6 +81,7 @@ volumes:
 | NIXPKGS_REPO_URL    | Git repository url pointing to a valid home manager configuration. The contents of the `~/.config/nixpkgs` directory will be replaced by the contents of the repo |               |
 | NIXPKGS_REPO_BRANCH | Repository branch for the home manager configuration.                                                                                                             |               |
 | SWEET_HOME_SHELL    | Set the preferred shell. This configuration will be used when doing `docker run` and on the balena terminal                                                       | sh            |
+| SSH_AUTHORIZED_KEYS | Comma delimited list of authorized public keys. If set, the container will launch an SSH server on port 2222                                                      |               |
 
 ## Attributions
 

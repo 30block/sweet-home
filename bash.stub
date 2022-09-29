@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Export ENV for ash shells
+export ENV="/etc/env"
+
 # Load home manager session vars if it exists
 [ -f "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh" ] && . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
