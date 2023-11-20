@@ -17,10 +17,15 @@ if [ -n "${NIXPKGS_REPO_BRANCH}" ]; then
 	set -- "$@" -b "${NIXPKGS_REPO_BRANCH}"
 fi
 
+# Migrate home-manager config to the recommended home
+if [ -d "${HOME}/.config/nixpkgs" ]; then
+	mv "${HOME}/.config/nixpkgs" "${HOME}/.config/home-manager"
+fi
+
 # If a repository was provided, replace default config with the repo config
-if [ -n "${NIXPKGS_REPO_URL}" ] && [ ! -d "${HOME}/.config/nixpkgs/.git" ]; then
-	rm -rf "${HOME}/.config/nixpkgs"
-	git clone "$@" "${NIXPKGS_REPO_URL}" "${HOME}/.config/nixpkgs"
+if [ -n "${NIXPKGS_REPO_URL}" ] && [ ! -d "${HOME}/.config/home-manager/.git" ]; then
+	rm -rf "${HOME}/.config/home-manager"
+	git clone "$@" "${NIXPKGS_REPO_URL}" "${HOME}/.config/home-manager"
 fi
 
 # Update channel definitions and install extra dependencies

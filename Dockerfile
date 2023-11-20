@@ -61,11 +61,12 @@ ENV ENV="/home/${USER}/.env"
 # Add nixpath channel but don't update it yet.
 # The update and install of default packages will happen on
 # the entrypoint
-RUN mkdir -p ${HOME}/.config/nixpkgs && \
-    nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+RUN mkdir -p ${HOME}/.config/home-manager && \
+    mkdir -p /nix/var/nix && \
+    nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 
 # Copy local files
-COPY --chown=${UID} home.nix ${HOME}/.config/nixpkgs/
+COPY --chown=${UID} home.nix ${HOME}/.config/home-manager
 COPY entry.sh /usr/local/bin/
 
 # Add fake bash for those tools that require it
