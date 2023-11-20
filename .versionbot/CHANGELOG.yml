@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update home-manager and fix package setup
+      hash: ce0d3032ae6864bdd12d37a171aa2d683ee77889
+      body: |
+        Package setup was failing due to some missing profile directories, this
+        fixes the issue and updates home-manager configuration to 23.05
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Felipe Lalanne
+      nested: []
+  version: 0.7.0
+  title: ""
+  date: 2023-11-20T19:20:51.137Z
+- commits:
     - subject: Move hmvars load to bash stub
       hash: cd2b0a1de0e0c7f305f7011057495e54f3f83dc5
       body: |
