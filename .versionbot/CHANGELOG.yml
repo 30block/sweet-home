@@ -1,4 +1,16 @@
 - commits:
+    - subject: Automatically pull changes from home-manager
+      hash: fe4e64f873f21742228f9b808d6088617101f002
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Felipe Lalanne
+      nested: []
+  version: 0.8.0
+  title: ""
+  date: 2025-03-06T01:38:51.679Z
+- commits:
     - subject: Update home-manager and fix package setup
       hash: ce0d3032ae6864bdd12d37a171aa2d683ee77889
       body: |
