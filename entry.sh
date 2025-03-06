@@ -28,6 +28,12 @@ if [ -n "${NIXPKGS_REPO_URL}" ] && [ ! -d "${HOME}/.config/home-manager/.git" ];
 	git clone "$@" "${NIXPKGS_REPO_URL}" "${HOME}/.config/home-manager"
 fi
 
+if [ -d "${HOME}/.config/home-manager/.git" ]; then
+	cd "${HOME}/.config/home-manager"
+	git pull --rebase || git rebase --abort
+	cd
+fi
+
 # Update channel definitions and install extra dependencies
 nix-channel --update
 home-manager switch || echo "Failed to load home manager config. Check your home.nix" >&2
